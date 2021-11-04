@@ -90,12 +90,12 @@ export class UserRegistrationService {
   /**
    * Calls the /movies/:movieId endpoint
    * @function getMovie
-   * @param movieId the id of the movie to retrieve
+   * @param movieTitle the id of the movie to retrieve
    * @returns an Observable containing a response
    */
-  public getMovie(movieId: string): Observable<any> {
+  public getMovie(movieTitle: string): Observable<any> {
     const response = this.http.get(
-      apiUrl + 'catalog/movies/' + movieId,
+      apiUrl + 'catalog/movies/' + movieTitle,
       headers
     );
     return response.pipe(
@@ -113,6 +113,23 @@ export class UserRegistrationService {
   public getDirector(directorNane: string): Observable<any> {
     const response = this.http.get(
       apiUrl + 'catalog/directors/' + directorNane,
+      headers
+    );
+    return response.pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+
+  /**
+   * Calls the /actors/:actorName endpoint
+   * @function getActor
+   * @param actorName the name of the actor to retrieve
+   * @returns an Observable containing a response
+   */
+  public getActor(actorName: string): Observable<any> {
+    const response = this.http.get(
+      apiUrl + 'catalog/actors/' + actorName,
       headers
     );
     return response.pipe(
