@@ -68,7 +68,7 @@ export class UserRegistrationService {
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
-      .post(apiUrl + 'login', userDetails)
+      .post(apiUrl + 'login', userDetails, headers)
       .pipe(catchError(this.handleError));
   }
 
@@ -79,7 +79,7 @@ export class UserRegistrationService {
    */
   public getAllMovies(): Observable<any> {
     //this has type Observable
-    const response = this.http.get(apiUrl + 'movies', headers);
+    const response = this.http.get(apiUrl + 'catalog/movies', headers);
 
     return response.pipe(
       map(this.extractResponseData),
@@ -94,7 +94,10 @@ export class UserRegistrationService {
    * @returns an Observable containing a response
    */
   public getMovie(movieId: string): Observable<any> {
-    const response = this.http.get(apiUrl + '/movies/' + movieId, headers);
+    const response = this.http.get(
+      apiUrl + 'catalog/movies/' + movieId,
+      headers
+    );
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -109,7 +112,7 @@ export class UserRegistrationService {
    */
   public getDirector(directorNane: string): Observable<any> {
     const response = this.http.get(
-      apiUrl + '/directors/' + directorNane,
+      apiUrl + 'catalog/directors/' + directorNane,
       headers
     );
     return response.pipe(
@@ -125,7 +128,10 @@ export class UserRegistrationService {
    * @returns an Observable conianing a response
    */
   public getGenre(genreName: string): Observable<any> {
-    const response = this.http.get(apiUrl + '/genres/' + genreName, headers);
+    const response = this.http.get(
+      apiUrl + 'catalog/genres/' + genreName,
+      headers
+    );
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -147,13 +153,16 @@ export class UserRegistrationService {
   }
 
   /**
-   * Calls the /username/favorites endpoint
+   * Calls the /users/username/favorites endpoint
    * @function getFavMovies
    * @param username the username of the user to retrieve the favorite movies of
    * @returns an Observable containing a response
    */
   public getFavMovies(username: string): Observable<any> {
-    const response = this.http.get(apiUrl + username + '/favorites', headers);
+    const response = this.http.get(
+      apiUrl + 'users/' + username + '/favorites',
+      headers
+    );
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -161,13 +170,16 @@ export class UserRegistrationService {
   }
 
   /**
-   * Calls the /username/favorites endpoint
+   * Calls the /:users/username/favorites endpoint
    * @function getWatchlist
    * @param username the username of the user to retrieve the list of fvaorites of
    * @returns an Observable containing a response
    */
   public getWatchlist(username: string): Observable<any> {
-    const response = this.http.get(apiUrl + username + '/watchlist', headers);
+    const response = this.http.get(
+      apiUrl + 'users/' + username + '/watchlist',
+      headers
+    );
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
