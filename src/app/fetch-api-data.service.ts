@@ -65,12 +65,16 @@ export class FetchApiDataService {
    * @param userDetails the payload of the request
    * @returns an Observable containing a response
    */
-  // public userLogin(userDetails: any): Observable<any> {
-  //   console.log(userDetails);
-  //   return this.http
-  //     .post(apiUrl + 'login', userDetails, headers)
-  //     .pipe(catchError(this.handleError));
-  // }
+  public userLogin(userDetails: any): Observable<any> {
+    console.log(userDetails);
+    const { Username, Password } = userDetails;
+    return this.http
+      .post(
+        apiUrl + 'login?Username=' + Username + '&Password=' + Password,
+        headers
+      )
+      .pipe(catchError(this.handleError));
+  }
 
   /**
    * Calls the /movies endpoint
