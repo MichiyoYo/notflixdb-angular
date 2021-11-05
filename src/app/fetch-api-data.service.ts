@@ -88,7 +88,46 @@ export class UserRegistrationService {
   }
 
   /**
-   * Calls the /movies/:movieId endpoint
+   * Calls the /catalog/genres endpoint
+   * @function getAllGenres
+   * @returns an Observable containing a response
+   */
+  public getAllGenres(): Observable<any> {
+    const response = this.http.get(apiUrl + 'catalog/genres', headers);
+    return response.pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+
+  /**
+   * Calls the /catalog/actors endpoint
+   * @function getAllActors
+   * @returns an Observable containing a response
+   */
+  public getAllActors(): Observable<any> {
+    const response = this.http.get(apiUrl + 'catalog/actors', headers);
+    return response.pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+
+  /**
+   * Calls the /catalog/directors endpoint
+   * @function getAllActors
+   * @returns an Observable containing a response
+   */
+  public getAllDirectors(): Observable<any> {
+    const response = this.http.get(apiUrl + 'catalog/directors', headers);
+    return response.pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+
+  /**
+   * Calls the /movies/:movieTitle endpoint
    * @function getMovie
    * @param movieTitle the id of the movie to retrieve
    * @returns an Observable containing a response
