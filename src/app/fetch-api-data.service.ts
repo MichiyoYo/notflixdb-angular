@@ -55,7 +55,7 @@ export class FetchApiDataService {
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
-      .post(apiUrl + 'register', userDetails)
+      .post(apiUrl + 'users/register', userDetails)
       .pipe(catchError(this.handleError));
   }
 
@@ -65,12 +65,12 @@ export class FetchApiDataService {
    * @param userDetails the payload of the request
    * @returns an Observable containing a response
    */
-  public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
-    return this.http
-      .post(apiUrl + 'login', userDetails, headers)
-      .pipe(catchError(this.handleError));
-  }
+  // public userLogin(userDetails: any): Observable<any> {
+  //   console.log(userDetails);
+  //   return this.http
+  //     .post(apiUrl + 'login', userDetails, headers)
+  //     .pipe(catchError(this.handleError));
+  // }
 
   /**
    * Calls the /movies endpoint

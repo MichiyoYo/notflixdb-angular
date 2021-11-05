@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./user-registration-form.component.scss'],
 })
 export class UserRegistrationFormComponent implements OnInit {
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
+  @Input() userData = { Username: '', Password: '', Email: '', BirthDate: '' };
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -22,11 +22,13 @@ export class UserRegistrationFormComponent implements OnInit {
       (result) => {
         // Logic for a successful user registration goes here! (To be implemented)
         this.dialogRef.close();
+        console.log(result);
         this.snackBar.open(result, 'OK', {
           duration: 2000,
         });
       },
       (result) => {
+        console.log(result);
         this.snackBar.open(result, 'OK', {
           duration: 2000,
         });
