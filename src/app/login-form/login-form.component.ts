@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
-  @Input() userData = { Username: '', Password: '' };
+  @Input() userCredentials = { Username: '', Password: '' };
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -18,4 +18,25 @@ export class LoginFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  login(): void {
+    this.fetchApiData.userLogin(this.userCredentials).subscribe(
+      (result) => {
+        this.dialogRef.close();
+
+        localStorage.setItem('token', result.token);
+        localStorage.setItem('user', JSON.stringify(result.user));
+        console.log(result);
+        this.snackBar.open(result, 'OK', {
+          duration: 2000,
+        });
+      },
+      (result) => {
+        console.log(result);
+        this.snackBar.open(result, 'OK', {
+          duration: 2000,
+        });
+      }
+    );
+  }
 }
