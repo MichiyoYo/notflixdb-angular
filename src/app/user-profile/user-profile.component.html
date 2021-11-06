@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Howdy, {{ user.Username }} </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-content">
+    <p>Username: {{ user.Username }}</p>
+    <p>Email: {{ user.Email }}</p>
+    <p>Birthday: {{ user.BirthDate }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      class="float-right"
+      mat-stroked-button
+      color="basic"
+      (click)="openEditProfileDialog()"
+    >
+      Edit
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -204,8 +204,8 @@ export class FetchApiDataService {
    * @param username the name of the user to retrieve
    * @returns an Observable conianing a response
    */
-  public getUser(username: string): Observable<any> {
-    const response = this.http.get(apiUrl + '/users/' + username, headers);
+  public getUser(username: any): Observable<any> {
+    const response = this.http.get(apiUrl + 'users/' + username, headers);
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
