@@ -1,0 +1,12 @@
+#mat-dialog-0 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mat-card {
+  .mat-card-subtitle {
+    img {
+      max-width: 250px;
+    }
+  }
+}
