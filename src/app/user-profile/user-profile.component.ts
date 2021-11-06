@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProfileEditComponent } from '../profile-edit/profile-edit.component';
+import { ProfileDeleteComponent } from '../profile-delete/profile-delete.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -43,6 +44,12 @@ export class UserProfileComponent implements OnInit {
       });
     });
     return this.favMovies;
+  }
+
+  deregisterUser(): void {
+    this.dialog.open(ProfileDeleteComponent, {
+      width: '280px',
+    });
   }
 
   openEditProfileDialog(): void {

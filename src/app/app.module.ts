@@ -22,6 +22,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { ProfileDeleteComponent } from './profile-delete/profile-delete.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     UserProfileComponent,
     ProfileEditComponent,
+    ProfileDeleteComponent,
   ],
   imports: [
     BrowserModule,
