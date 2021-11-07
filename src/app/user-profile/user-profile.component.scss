@@ -1,0 +1,11 @@
+.user-profile-wrapper {
+  padding-top: 60px;
+  .mat-card {
+    padding: 40px;
+    .mat-card-header {
+      h2 {
+        margin-top: 0;
+      }
+    }
+  }
+}
