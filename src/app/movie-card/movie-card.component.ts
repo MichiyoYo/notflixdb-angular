@@ -6,8 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { GenreCardComponent } from '../genre-card/genre-card.component';
 import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component';
 import { DirectorCardComponent } from '../director-card/director-card.component';
-import { Route } from '@angular/compiler/src/core';
-import { stringify } from 'querystring';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-movie-card',

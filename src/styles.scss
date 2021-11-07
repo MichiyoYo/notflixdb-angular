@@ -46,3 +46,17 @@ body {
   background-color: #27273f;
   margin: 10px;
 }
+
+.mat-drawer-container {
+  .mat-drawer-content {
+    background-color: #202136;
+  }
+  .mat-drawer {
+    background-color: #27273f;
+  }
+  .mat-toolbar {
+    &.mat-primary {
+      background-image: linear-gradient(90deg, #673ab7, #e91e63);
+    }
+  }
+}

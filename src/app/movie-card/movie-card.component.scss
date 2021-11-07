@@ -8,6 +8,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: 30px;
+  background-color: #202136;
+  @media screen and (max-width: 500px) {
+    padding: 0;
+  }
 }
 
 .mat-card {

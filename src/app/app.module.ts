@@ -26,10 +26,16 @@ import { ProfileDeleteComponent } from './profile-delete/profile-delete.componen
 import { DirectorCardComponent } from './director-card/director-card.component';
 import { GenreCardComponent } from './genre-card/genre-card.component';
 import { SynopsisCardComponent } from './synopsis-card/synopsis-card.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MainViewComponent } from './main-view/main-view.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
-  { path: 'movies', component: MovieCardComponent },
+  { path: 'movies', component: NavbarComponent },
   { path: 'user', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
@@ -47,6 +53,8 @@ const appRoutes: Routes = [
     DirectorCardComponent,
     GenreCardComponent,
     SynopsisCardComponent,
+    NavbarComponent,
+    MainViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +70,10 @@ const appRoutes: Routes = [
     FormsModule,
     MatIconModule,
     RouterModule.forRoot(appRoutes),
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
