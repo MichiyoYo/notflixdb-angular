@@ -28,17 +28,19 @@ export class LoginFormComponent implements OnInit {
 
         localStorage.setItem('token', result.token);
         localStorage.setItem('user', JSON.stringify(result.user));
-        //console.log(result);
-        this.snackBar.open(result, 'OK', {
+        this.snackBar.open('Successfully logged in! 😸', 'OK, cool', {
           duration: 2000,
         });
         this.router.navigate(['movies']);
       },
       (result) => {
-        // console.log(result);
-        this.snackBar.open(result, 'OK', {
-          duration: 2000,
-        });
+        this.snackBar.open(
+          'Something went wrong, please try again. 😿',
+          'Aw, alright',
+          {
+            duration: 2000,
+          }
+        );
       }
     );
   }

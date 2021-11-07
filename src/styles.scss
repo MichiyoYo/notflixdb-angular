@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/purple-green.css";
 
 html,
 body {
@@ -9,9 +9,40 @@ body {
 }
 
 body {
+  position: relative;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #202136;
+}
+
+.mat-raised-button {
+  &.mat-primary {
+    background-image: linear-gradient(45deg, #5500fc, #cd03ff);
+  }
+  &.mat-accent {
+    background-image: linear-gradient(45deg, #009688, #8bc34a);
+    color: #fff;
+  }
+}
+
+.mat-dialog-container {
+  background-color: #27273f;
+  .mat-form-field {
+    font-size: 14px;
+    &.mat-focused {
+      .mat-form-field-label {
+        color: #fe01aa;
+      }
+    }
+  }
+}
+
+.mat-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  position: relative;
+  padding: 40px;
+  background-color: #27273f;
+  margin: 10px;
 }

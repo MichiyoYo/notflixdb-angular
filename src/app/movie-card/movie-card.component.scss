@@ -4,7 +4,23 @@
 }
 
 .mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 40px;
+  background-color: #27273f;
+  margin: 10px;
   img {
     max-width: 250px;
+  }
+  .mat-card-actions {
+    display: flex;
+    mat-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
   }
 }

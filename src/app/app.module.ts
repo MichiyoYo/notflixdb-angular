@@ -23,6 +23,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProfileDeleteComponent } from './profile-delete/profile-delete.component';
+import { DirectorCardComponent } from './director-card/director-card.component';
+import { GenreCardComponent } from './genre-card/genre-card.component';
+import { SynopsisCardComponent } from './synopsis-card/synopsis-card.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -41,6 +44,9 @@ const appRoutes: Routes = [
     UserProfileComponent,
     ProfileEditComponent,
     ProfileDeleteComponent,
+    DirectorCardComponent,
+    GenreCardComponent,
+    SynopsisCardComponent,
   ],
   imports: [
     BrowserModule,

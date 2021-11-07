@@ -7,18 +7,18 @@
   <mat-card-content class="card-content">
     <p><b>Username</b>: {{ user.Username }}</p>
     <p><b>Email</b>: {{ user.Email }}</p>
-    <p><b>Birth</b> Date: {{ user.BirthDate | date: "MM/dd/yyyy":"UTC" }}</p>
+    <p><b>Birth Date</b>: {{ user.BirthDate | date: "MM/dd/yyyy":"UTC" }}</p>
   </mat-card-content>
   <mat-card-actions>
     <button
       class="float-right"
       mat-raised-button
-      color="basic"
+      color="primary"
       (click)="openEditProfileDialog()"
     >
       Edit
     </button>
-    <button mat-raised-button color="warn" (click)="deregisterUser()">
+    <button mat-raised-button color="accent" (click)="deregisterUser()">
       Delete
     </button>
   </mat-card-actions>
