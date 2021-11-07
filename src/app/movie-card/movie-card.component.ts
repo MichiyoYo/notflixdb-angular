@@ -134,6 +134,11 @@ export class MovieCardComponent implements OnInit {
     this.updateFavs();
   }
 
+  /**
+   * Removes a movie from the user's list of favorites
+   * @param movieId the id of the movie
+   * @param title the title of the movie
+   */
   removeFromFavs(movieId: string, title: string): void {
     this.fetchApiData
       .removeFromFav(this.user.username, movieId)
@@ -150,5 +155,14 @@ export class MovieCardComponent implements OnInit {
         }, 3000);
       });
     this.updateFavs();
+  }
+
+  /**
+   * Checks if a movie is included in the user's list of favorites
+   * @param id the id of the movie
+   * @returns true if the movie is in the list of favorites, false otherwhise
+   */
+  isFav(id: TemplateStringsArray): boolean {
+    return this.favMovies.includes(id) ? true : false;
   }
 }
