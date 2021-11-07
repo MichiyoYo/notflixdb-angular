@@ -3,6 +3,13 @@
   flex-wrap: wrap;
 }
 
+.movies-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
 .mat-card {
   display: flex;
   flex-direction: column;
