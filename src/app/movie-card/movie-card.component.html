@@ -37,7 +37,12 @@
         mat-raised-button
         color="primary"
         (click)="
-          openSynopsisDialog(movie.Title, movie.ImagePath, movie.Description)
+          openSynopsisDialog(
+            movie.Title,
+            movie.Description,
+            movie.ReleaseDate,
+            movie.Rating
+          )
         "
       >
         Synopsis

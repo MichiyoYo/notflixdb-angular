@@ -85,15 +85,20 @@ export class MovieCardComponent implements OnInit {
    * Opens a dialog containing info about the movie
    * @function openSynopsisDialog
    * @param title the title of the movie
-   * @param imageUrl the url of the poster
    * @param description the description of the movie
    */
-  openSynopsisDialog(title: string, imageUrl: any, description: string): void {
+  openSynopsisDialog(
+    title: string,
+    description: string,
+    releaseDate: any,
+    rating: any
+  ): void {
     this.dialog.open(SynopsisCardComponent, {
       data: {
         title,
-        imageUrl,
         description,
+        releaseDate,
+        rating,
       },
       width: '500px',
     });
