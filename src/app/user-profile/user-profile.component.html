@@ -2,11 +2,12 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title>
-        <h2>Howdy, {{ user.Username }} 👋</h2></mat-card-title
+        <h2>Howdy, {{ user.Username }}!</h2></mat-card-title
       >
     </mat-card-header>
     <mat-card-content class="card-content">
       <p><b>Username</b>: {{ user.Username }}</p>
+      <p><b>Password: ********</b></p>
       <p><b>Email</b>: {{ user.Email }}</p>
       <p><b>Birth Date</b>: {{ user.BirthDate | date: "MM/dd/yyyy":"UTC" }}</p>
     </mat-card-content>

@@ -1,1 +1,23 @@
-<p>profile-delete works!</p>
+<div class="delete-confirmation-dialog">
+  <h3 mat-dialog-title>
+    This operation is irrevesible, do you want to continue?
+  </h3>
+  <div mat-dialog-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      aria-label="button that cancels deleting user account"
+      (click)="cancelDeregistration()"
+    >
+      NO
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      aria-label="button that proceeds to delete user account"
+      (click)="deregisterUser()"
+    >
+      YES
+    </button>
+  </div>
+</div>

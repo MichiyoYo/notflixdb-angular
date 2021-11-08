@@ -48,7 +48,8 @@ export class UserProfileComponent implements OnInit {
 
   deregisterUser(): void {
     this.dialog.open(ProfileDeleteComponent, {
-      width: '280px',
+      width: '400px',
+      panelClass: 'delete-user-dialog',
     });
   }
 
