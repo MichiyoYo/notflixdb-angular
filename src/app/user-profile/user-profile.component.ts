@@ -55,7 +55,7 @@ export class UserProfileComponent implements OnInit {
 
   openEditProfileDialog(): void {
     this.dialog.open(ProfileEditComponent, {
-      width: '500px',
+      width: '300px',
     });
   }
 }

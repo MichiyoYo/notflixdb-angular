@@ -166,7 +166,15 @@ export class MovieCardComponent implements OnInit {
    * @param id the id of the movie
    * @returns true if the movie is in the list of favorites, false otherwhise
    */
-  isFav(id: TemplateStringsArray): boolean {
+  isFav(id: string): boolean {
     return this.favMovies.includes(id) ? true : false;
   }
+
+  // toggleFavs(id: string):void{
+  //   //if isFav call removeFromFav
+
+  //   //if !isFav call addToFav
+
+  //   //call updateFav
+  // };
 }

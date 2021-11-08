@@ -277,6 +277,8 @@ export class FetchApiDataService {
         }),
       }
     );
+
+    console.log();
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -292,7 +294,7 @@ export class FetchApiDataService {
    */
   public addToFav(username: string, movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
-    console.log(username, token);
+
     const response = this.http.post(
       apiUrl + 'users/' + username + '/favorites/' + movieId,
       {
@@ -301,6 +303,7 @@ export class FetchApiDataService {
         }),
       }
     );
+
     return response.pipe(catchError(this.handleError));
   }
 
@@ -313,6 +316,7 @@ export class FetchApiDataService {
    */
   public addToWatchlist(username: string, movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
+
     const response = this.http.post(
       apiUrl + 'users/' + username + 'watchlist/' + movieId,
       {
