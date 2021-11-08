@@ -20,18 +20,24 @@ export class ProfileDeleteComponent implements OnInit {
   ngOnInit(): void {}
 
   deregisterUser(): void {
-    this.fetchApiData.deleteUser(this.user.Username).subscribe(() => {
-      this.snackBar.open(
-        `The user ${this.user.Username} has been deregistered`,
-        'Great',
-        {
-          duration: 2000,
-        }
-      );
-      this.router.navigate(['/welcome']).then(() => {
-        window.location.reload();
-      });
-    });
+    this.fetchApiData.deleteUser(this.user.Username).subscribe(
+      () => {
+        this.snackBar.open(
+          `The user ${this.user.Username} has been deregistered`,
+          'Great',
+          {
+            duration: 2000,
+          }
+        );
+        localStorage.clear();
+      },
+      (result) => {
+        this.snackBar.open(result, 'Ok', { duration: 2000 });
+        this.router.navigate(['/welcome']).then(() => {
+          window.location.reload();
+        });
+      }
+    );
   }
 
   cancelDeregistration(): void {

@@ -32,6 +32,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MainViewComponent } from './main-view/main-view.component';
+import { UserLogoutComponent } from './user-logout/user-logout.component';
+import { UserFavoritesComponent } from './user-favorites/user-favorites.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -55,6 +57,8 @@ const appRoutes: Routes = [
     SynopsisCardComponent,
     NavbarComponent,
     MainViewComponent,
+    UserLogoutComponent,
+    UserFavoritesComponent,
   ],
   imports: [
     BrowserModule,
