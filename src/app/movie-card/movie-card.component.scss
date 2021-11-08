@@ -23,9 +23,13 @@
   position: relative;
   padding: 40px;
   background-color: #27273f;
-  //margin: 10px;
   max-width: 300px;
   width: 300px;
+  .mat-icon-button {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
   img {
     max-width: 250px;
   }
@@ -36,10 +40,5 @@
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    mat-icon {
-      position: absolute;
-      top: 25px;
-      right: 25px;
-    }
   }
 }

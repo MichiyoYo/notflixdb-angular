@@ -11,14 +11,6 @@ import { map } from 'rxjs/operators';
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://notflixapi.herokuapp.com/';
 
-const token = localStorage.getItem('token');
-
-const headers = {
-  headers: new HttpHeaders({
-    Authorization: 'Bearer ' + token,
-  }),
-};
-
 @Injectable({
   providedIn: 'root',
 })
@@ -37,7 +29,7 @@ export class FetchApiDataService {
         `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
       );
     }
-    return throwError('Something bad happened; please try again later.');
+    return throwError('Something bad happened, please try again later. 💔');
   }
 
   // Non-typed response extraction
@@ -53,7 +45,6 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
     return this.http
       .post(apiUrl + 'users/register', userDetails)
       .pipe(catchError(this.handleError));
@@ -66,13 +57,14 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
+    const token = localStorage.getItem('token');
     const { Username, Password } = userDetails;
     return this.http
-      .post(
-        apiUrl + 'login?Username=' + Username + '&Password=' + Password,
-        headers
-      )
+      .post(apiUrl + 'login?Username=' + Username + '&Password=' + Password, {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      })
       .pipe(catchError(this.handleError));
   }
 
@@ -82,8 +74,12 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public getAllMovies(): Observable<any> {
-    //this has type Observable
-    const response = this.http.get(apiUrl + 'catalog/movies', headers);
+    const token = localStorage.getItem('token');
+    const response = this.http.get(apiUrl + 'catalog/movies', {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    });
 
     return response.pipe(
       map(this.extractResponseData),
@@ -97,7 +93,12 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public getAllGenres(): Observable<any> {
-    const response = this.http.get(apiUrl + 'catalog/genres', headers);
+    const token = localStorage.getItem('token');
+    const response = this.http.get(apiUrl + 'catalog/genres', {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    });
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -110,7 +111,12 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public getAllActors(): Observable<any> {
-    const response = this.http.get(apiUrl + 'catalog/actors', headers);
+    const token = localStorage.getItem('token');
+    const response = this.http.get(apiUrl + 'catalog/actors', {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    });
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -123,7 +129,12 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public getAllDirectors(): Observable<any> {
-    const response = this.http.get(apiUrl + 'catalog/directors', headers);
+    const token = localStorage.getItem('token');
+    const response = this.http.get(apiUrl + 'catalog/directors', {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    });
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -137,10 +148,12 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public getMovie(movieTitle: string): Observable<any> {
-    const response = this.http.get(
-      apiUrl + 'catalog/movies/' + movieTitle,
-      headers
-    );
+    const token = localStorage.getItem('token');
+    const response = this.http.get(apiUrl + 'catalog/movies/' + movieTitle, {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    });
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -154,9 +167,14 @@ export class FetchApiDataService {
    * @returns an Observable containig a response
    */
   public getDirector(directorNane: string): Observable<any> {
+    const token = localStorage.getItem('token');
     const response = this.http.get(
       apiUrl + 'catalog/directors/' + directorNane,
-      headers
+      {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      }
     );
     return response.pipe(
       map(this.extractResponseData),
@@ -171,10 +189,12 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public getActor(actorName: string): Observable<any> {
-    const response = this.http.get(
-      apiUrl + 'catalog/actors/' + actorName,
-      headers
-    );
+    const token = localStorage.getItem('token');
+    const response = this.http.get(apiUrl + 'catalog/actors/' + actorName, {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    });
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -188,10 +208,12 @@ export class FetchApiDataService {
    * @returns an Observable conianing a response
    */
   public getGenre(genreName: string): Observable<any> {
-    const response = this.http.get(
-      apiUrl + 'catalog/genres/' + genreName,
-      headers
-    );
+    const token = localStorage.getItem('token');
+    const response = this.http.get(apiUrl + 'catalog/genres/' + genreName, {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    });
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -205,7 +227,12 @@ export class FetchApiDataService {
    * @returns an Observable conianing a response
    */
   public getUser(username: any): Observable<any> {
-    const response = this.http.get(apiUrl + 'users/' + username, headers);
+    const token = localStorage.getItem('token');
+    const response = this.http.get(apiUrl + 'users/' + username, {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    });
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -219,9 +246,14 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public getFavMovies(username: string): Observable<any> {
+    const token = localStorage.getItem('token');
     const response = this.http.get(
       apiUrl + 'users/' + username + '/favorites',
-      headers
+      {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      }
     );
     return response.pipe(
       map(this.extractResponseData),
@@ -236,9 +268,14 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public getWatchlist(username: string): Observable<any> {
+    const token = localStorage.getItem('token');
     const response = this.http.get(
       apiUrl + 'users/' + username + '/watchlist',
-      headers
+      {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      }
     );
     return response.pipe(
       map(this.extractResponseData),
@@ -254,9 +291,15 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public addToFav(username: string, movieId: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    console.log(username, token);
     const response = this.http.post(
-      apiUrl + 'users/' + username + 'favorites/' + movieId,
-      headers
+      apiUrl + 'users/' + username + '/favorites/' + movieId,
+      {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      }
     );
     return response.pipe(catchError(this.handleError));
   }
@@ -269,9 +312,14 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public addToWatchlist(username: string, movieId: string): Observable<any> {
+    const token = localStorage.getItem('token');
     const response = this.http.post(
       apiUrl + 'users/' + username + 'watchlist/' + movieId,
-      headers
+      {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      }
     );
     return response.pipe(catchError(this.handleError));
   }
@@ -284,9 +332,14 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public removeFromFav(username: string, movieId: string): Observable<any> {
+    const token = localStorage.getItem('token');
     const response = this.http.delete(
       apiUrl + 'users/' + username + 'favorites/' + movieId,
-      headers
+      {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      }
     );
     return response.pipe(catchError(this.handleError));
   }
@@ -302,9 +355,14 @@ export class FetchApiDataService {
     username: string,
     movieId: string
   ): Observable<any> {
+    const token = localStorage.getItem('token');
     const response = this.http.delete(
       apiUrl + 'users/' + username + 'watchlist/' + movieId,
-      headers
+      {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      }
     );
     return response.pipe(catchError(this.handleError));
   }
@@ -316,9 +374,14 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public deleteUser(username: string): Observable<any> {
+    const token = localStorage.getItem('token');
     const response = this.http.delete(
       apiUrl + 'users/' + username + '/deregister',
-      headers
+      {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      }
     );
     return response.pipe(catchError(this.handleError));
   }
@@ -331,11 +394,12 @@ export class FetchApiDataService {
    * @returns an Observable containing a response
    */
   public editUser(username: string, updatedInfo: object): Observable<any> {
-    const response = this.http.put(
-      apiUrl + 'users/' + username,
-      updatedInfo,
-      headers
-    );
+    const token = localStorage.getItem('token');
+    const response = this.http.put(apiUrl + 'users/' + username, updatedInfo, {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    });
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)

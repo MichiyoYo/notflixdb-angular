@@ -6,7 +6,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { GenreCardComponent } from '../genre-card/genre-card.component';
 import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component';
 import { DirectorCardComponent } from '../director-card/director-card.component';
-import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -110,7 +109,7 @@ export class MovieCardComponent implements OnInit {
    * @function updateFavs
    */
   updateFavs(): void {
-    this.fetchApiData.getUser(this.user).subscribe((res: any) => {
+    this.fetchApiData.getUser(this.user.Username).subscribe((res: any) => {
       this.favMovies = res.FavoriteMovies;
       return this.favMovies;
     });
@@ -123,7 +122,7 @@ export class MovieCardComponent implements OnInit {
    */
   addToFavs(movieId: string, title: string): void {
     this.fetchApiData
-      .addToFav(this.user.username, movieId)
+      .addToFav(this.user.Username, movieId)
       .subscribe((res: any) => {
         this.snackBar.open(
           `${title} has been added to your favorite movies! ✔️`,

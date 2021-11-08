@@ -36,7 +36,7 @@ export class LoginFormComponent implements OnInit {
       },
       (result) => {
         this.snackBar.open(
-          'Something went wrong, please try again. 😿',
+          'Wrong username or password. Please try again. 😿',
           'Aw, alright',
           {
             duration: 2000,
