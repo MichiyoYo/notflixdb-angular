@@ -32,7 +32,9 @@ export class ProfileDeleteComponent implements OnInit {
         localStorage.clear();
       },
       (result) => {
-        this.snackBar.open(result, 'Ok', { duration: 2000 });
+        this.snackBar.open('Something went wrong, please try later. 😿', 'Ok', {
+          duration: 2000,
+        });
         this.router.navigate(['/welcome']).then(() => {
           window.location.reload();
         });

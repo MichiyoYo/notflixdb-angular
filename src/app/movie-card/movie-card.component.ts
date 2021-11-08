@@ -29,7 +29,7 @@ export class MovieCardComponent implements OnInit {
    * Initialize component and retrieve all movies
    */
   ngOnInit(): void {
-    window.location.reload();
+    // window.location.reload();
     this.getMovies();
   }
 

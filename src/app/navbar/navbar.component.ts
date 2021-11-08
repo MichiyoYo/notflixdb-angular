@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-navbar',
@@ -19,6 +20,17 @@ export class NavbarComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    public router: Router
+    public router: Router,
+    public snackBar: MatSnackBar
   ) {}
+
+  userLogout(): void {
+    localStorage.clear();
+    this.snackBar.open('You successfully logged out! 👋', 'Ok, tnx, bye', {
+      duration: 2000,
+    });
+    this.router.navigate(['/welcome']).then(() => {
+      window.location.reload();
+    });
+  }
 }
