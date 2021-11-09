@@ -279,7 +279,6 @@ export class FetchApiDataService {
       }
     );
 
-    console.log();
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -295,7 +294,7 @@ export class FetchApiDataService {
    */
   public addToFav(username: string, movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
-    console.log(apiUrl + 'users/' + username + '/favorites/' + movieId);
+
     const response = this.http
       .post(
         apiUrl + 'users/' + username + '/favorites/' + movieId,

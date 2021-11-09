@@ -111,7 +111,6 @@ export class MovieCardComponent implements OnInit {
   getUserFavs(): any {
     this.fetchApiData.getFavMovies(this.user.Username).subscribe((res: any) => {
       this.favMovies = res.Favorites;
-      console.log(this.favMovies);
       return this.favMovies;
     });
   }
@@ -167,8 +166,14 @@ export class MovieCardComponent implements OnInit {
     return this.favMovies.some((movie) => movie._id === movieId);
   }
 
+  /**
+   * Toggles the heart shape icon from full to empty, and invokes the method to add or
+   * remove a function from the user's list of favorites
+   * @function toggleFavs
+   * @param movie the movie to add/remove to/from favs
+   */
   toggleFavs(movie: any): void {
-    return this.isFav(movie._id)
+    this.isFav(movie._id)
       ? this.removeFromFavs(movie._id, movie.Title)
       : this.addToFavs(movie._id, movie.Title);
   }
