@@ -28,8 +28,8 @@ export class MovieCardComponent implements OnInit {
    * Initialize component and retrieve all movies
    */
   ngOnInit(): void {
-    // window.location.reload();
     this.getMovies();
+    this.getUserFavs();
   }
 
   /**
@@ -108,9 +108,14 @@ export class MovieCardComponent implements OnInit {
    * Updates the local list of favorites by downloading it from the DB
    * @function updateFavs
    */
-  updateFavs(): void {
-    this.fetchApiData.getUser(this.user.Username).subscribe((res: any) => {
-      this.favMovies = res.FavoriteMovies;
+  // updateFavs(): void {
+  //   const userFavs = this.getUserFavs();
+  //   this.favMovies = userFavs;
+  // }
+
+  getUserFavs(): any {
+    this.fetchApiData.getFavMovies(this.user.Username).subscribe((res: any) => {
+      this.favMovies = res.Favorites;
       return this.favMovies;
     });
   }
@@ -135,7 +140,7 @@ export class MovieCardComponent implements OnInit {
           window.location.reload();
         }, 3000);
       });
-    this.updateFavs();
+    return this.getUserFavs();
   }
 
   /**
@@ -158,7 +163,7 @@ export class MovieCardComponent implements OnInit {
           window.location.reload();
         }, 3000);
       });
-    this.updateFavs();
+    return this.getUserFavs();
   }
 
   /**
@@ -170,11 +175,10 @@ export class MovieCardComponent implements OnInit {
     return this.favMovies.includes(id) ? true : false;
   }
 
-  // toggleFavs(id: string):void{
-  //   //if isFav call removeFromFav
-
-  //   //if !isFav call addToFav
-
-  //   //call updateFav
-  // };
+  toggleFavs(id: string): void {
+    //fetch user favs
+    //if isFav call removeFromFav
+    //if !isFav call addToFav
+    //call updateFav
+  }
 }

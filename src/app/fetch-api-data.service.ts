@@ -26,7 +26,8 @@ export class FetchApiDataService {
       console.error('Some error occurred:', error.error.message);
     } else {
       console.error(
-        `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
+        `Error Status code ${error.status}, ` +
+          `Error body is: ${JSON.stringify(error.error)}`
       );
     }
     return throwError('Something bad happened, please try again later. 💔');
@@ -294,18 +295,21 @@ export class FetchApiDataService {
    */
   public addToFav(username: string, movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
+    console.log(apiUrl + 'users/' + username + '/favorites/' + movieId);
+    const response = this.http
+      .post(
+        apiUrl + 'users/' + username + '/favorites/' + movieId,
+        {},
+        {
+          headers: new HttpHeaders({
+            Authorization: 'Bearer ' + token,
+          }),
+          responseType: 'text',
+        }
+      )
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
 
-    const response = this.http.post(
-      apiUrl + 'users/' + username + '/favorites/' + movieId,
-      {},
-      {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      }
-    );
-
-    return response.pipe(catchError(this.handleError));
+    return response;
   }
 
   /**
@@ -320,13 +324,18 @@ export class FetchApiDataService {
 
     const response = this.http.post(
       apiUrl + 'users/' + username + 'watchlist/' + movieId,
+      {},
       {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
+        responseType: 'text',
       }
     );
-    return response.pipe(catchError(this.handleError));
+    return response.pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
   }
 
   /**
