@@ -106,16 +106,12 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * Updates the local list of favorites by downloading it from the DB
-   * @function updateFavs
+   * @function getUserFavs
    */
-  // updateFavs(): void {
-  //   const userFavs = this.getUserFavs();
-  //   this.favMovies = userFavs;
-  // }
-
   getUserFavs(): any {
     this.fetchApiData.getFavMovies(this.user.Username).subscribe((res: any) => {
       this.favMovies = res.Favorites;
+      console.log(this.favMovies);
       return this.favMovies;
     });
   }
@@ -136,9 +132,7 @@ export class MovieCardComponent implements OnInit {
             duration: 2000,
           }
         );
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
+        this.ngOnInit();
       });
     return this.getUserFavs();
   }
@@ -168,11 +162,11 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * Checks if a movie is included in the user's list of favorites
-   * @param id the id of the movie
+   * @param movieId the id of the movie
    * @returns true if the movie is in the list of favorites, false otherwhise
    */
-  isFav(id: string): boolean {
-    return this.favMovies.includes(id) ? true : false;
+  isFav(movieId: string): boolean {
+    return this.favMovies.some((movie) => movie._id === movieId);
   }
 
   toggleFavs(id: string): void {
