@@ -6,6 +6,9 @@ app-user-favorites {
   h2 {
     text-align: center;
     padding-top: 60px;
+    @media screen and (max-width: 500px) {
+      padding-top: 20px;
+    }
   }
 }
 .favorites {
