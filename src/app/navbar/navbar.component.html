@@ -10,6 +10,7 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="/user">Profile</a>
+      <a mat-list-item href="/favorites">Favorites</a>
       <a mat-list-item href="/movies">Movies</a>
       <button
         mat-raised-button
@@ -38,5 +39,9 @@
     <app-movie-card *ngIf="router.url === '/movies'"></app-movie-card>
     <!-- if url contains user show this-->
     <app-user-profile *ngIf="router.url === '/user'"></app-user-profile>
+    <!-- if url contains favorites show this -->
+    <app-user-favorites
+      *ngIf="router.url === '/favorites'"
+    ></app-user-favorites>
   </mat-sidenav-content>
 </mat-sidenav-container>
