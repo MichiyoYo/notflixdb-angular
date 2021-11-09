@@ -7,7 +7,7 @@
       mat-raised-button
       color="primary"
       aria-label="button that cancels deleting user account"
-      (click)="cancelDeregistration()"
+      [mat-dialog-close]="true"
     >
       NO
     </button>

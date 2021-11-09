@@ -41,10 +41,4 @@ export class ProfileDeleteComponent implements OnInit {
       }
     );
   }
-
-  cancelDeregistration(): void {
-    this.router.navigate(['/user']).then(() => {
-      window.location.reload();
-    });
-  }
 }
