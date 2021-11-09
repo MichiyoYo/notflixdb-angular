@@ -348,14 +348,18 @@ export class FetchApiDataService {
   public removeFromFav(username: string, movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
     const response = this.http.delete(
-      apiUrl + 'users/' + username + 'favorites/' + movieId,
+      apiUrl + 'users/' + username + '/favorites/' + movieId,
       {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
+        responseType: 'text',
       }
     );
-    return response.pipe(catchError(this.handleError));
+    return response.pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
   }
 
   /**

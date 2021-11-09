@@ -144,7 +144,7 @@ export class MovieCardComponent implements OnInit {
    */
   removeFromFavs(movieId: string, title: string): void {
     this.fetchApiData
-      .removeFromFav(this.user.username, movieId)
+      .removeFromFav(this.user.Username, movieId)
       .subscribe((res: any) => {
         this.snackBar.open(
           `${title} has been removed from your favorite movies ✔️`,
@@ -153,9 +153,7 @@ export class MovieCardComponent implements OnInit {
             duration: 2000,
           }
         );
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
+        this.ngOnInit();
       });
     return this.getUserFavs();
   }
@@ -169,10 +167,9 @@ export class MovieCardComponent implements OnInit {
     return this.favMovies.some((movie) => movie._id === movieId);
   }
 
-  toggleFavs(id: string): void {
-    //fetch user favs
-    //if isFav call removeFromFav
-    //if !isFav call addToFav
-    //call updateFav
+  toggleFavs(movie: any): void {
+    return this.isFav(movie._id)
+      ? this.removeFromFavs(movie._id, movie.Title)
+      : this.addToFavs(movie._id, movie.Title);
   }
 }

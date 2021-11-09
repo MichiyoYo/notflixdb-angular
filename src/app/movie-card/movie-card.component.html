@@ -47,11 +47,7 @@
       >
         Synopsis
       </button>
-      <button
-        mat-icon-button
-        color="warn"
-        (click)="addToFavs(movie._id, movie.Title)"
-      >
+      <button mat-icon-button color="warn" (click)="toggleFavs(movie)">
         <mat-icon *ngIf="isFav(movie._id)">favorite</mat-icon>
         <mat-icon *ngIf="!isFav(movie._id)">favorite_border</mat-icon>
       </button>
