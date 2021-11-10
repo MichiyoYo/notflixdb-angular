@@ -1,5 +1,6 @@
 /**
  * LoginFormComponent view allows a user to login into the app
+ * @module LoginFormComponent
  */
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';

@@ -1,5 +1,6 @@
 /**
  * SynopsisCardComponent view allows a user to visualize the synopsis of a movie in a dialog
+ * @module SynopsisCardComponent
  */
 
 import { Component, OnInit, Inject } from '@angular/core';

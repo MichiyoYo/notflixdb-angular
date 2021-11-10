@@ -1,3 +1,8 @@
+/**
+ * Main component that hosts the NotFlix application
+ * @module AppComponent
+ */
+
 import { Component } from '@angular/core';
 
 @Component({

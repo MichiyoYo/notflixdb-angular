@@ -1,6 +1,7 @@
 /**
  * UserProfileComponent view allows a user to see their profile info,
  * provides the options to edit or delete the profile
+ * @module UserProfileComponent
  */
 
 import { Component, OnInit } from '@angular/core';

@@ -1,3 +1,8 @@
+/**
+ * ProfileEditComponent view lets the user edit their profile information
+ * @module ProfileEditComponent
+ */
+
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialogRef } from '@angular/material/dialog';

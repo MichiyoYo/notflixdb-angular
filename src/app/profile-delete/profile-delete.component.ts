@@ -1,6 +1,6 @@
 /**
  * ProfileDeleteComponent view allows the user to deregister their profile.
- * @module
+ * @module ProfileDeleteComponent
  */
 
 import { Component, OnInit } from '@angular/core';

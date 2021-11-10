@@ -1,6 +1,6 @@
 /**
  * Collection of methods to perform calls to NotFlix API endopoints
- * @module fetch-api-data
+ * @module FetchApiDataService
  */
 
 import { Injectable } from '@angular/core';

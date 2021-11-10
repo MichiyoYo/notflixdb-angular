@@ -1,7 +1,7 @@
 /**
  * UserFavoritesComponent view allows a user to view their list of favorites
  * offering the option to remove a movie from the list of favorites or visualize info about director, genre and its synopsis.
- * @module
+ * @module UserFavoritesComponent
  */
 
 import { Component, OnInit } from '@angular/core';

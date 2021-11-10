@@ -1,6 +1,7 @@
 /**
  * MovieCardComponent view holds informations about a movie, such as title, poster image, director, genre and synopsis.
  * It allosw a user to like a movie by clicking on the heart shaped icon.
+ * @module MovieCardComponent
  */
 
 import { Component, OnInit } from '@angular/core';

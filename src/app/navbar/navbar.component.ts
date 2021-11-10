@@ -1,5 +1,6 @@
 /**
  * NavbarComponent view renders a side nav and toolbar to facilitate the navigation for the user
+ * @module NavbarComponent
  */
 
 import { Component } from '@angular/core';

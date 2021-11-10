@@ -1,3 +1,8 @@
+/**
+ * Collection of modules to perform a set of specific operations on movies and users
+ * @module AppModule
+ */
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 

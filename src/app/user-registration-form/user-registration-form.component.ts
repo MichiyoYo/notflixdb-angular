@@ -1,6 +1,6 @@
 /**
  * User Registration View allows a user to register
- * @module
+ * @module UserRegistrationFormComponent
  */
 
 import { Component, OnInit, Input } from '@angular/core';

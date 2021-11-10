@@ -1,6 +1,6 @@
 /**
  * GenreCardComponent view allows a user to visualize info about the genre of a movie.
- * @module
+ * @module GenreCardComponent
  */
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';

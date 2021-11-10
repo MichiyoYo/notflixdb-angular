@@ -1,6 +1,6 @@
 /**
  * DirectorCardComponent view allows a user to visualize info about the director of a movie.
- * @module
+ * @module DirectorCardComponent
  */
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
