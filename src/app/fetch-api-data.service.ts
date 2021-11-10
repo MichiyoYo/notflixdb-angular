@@ -20,8 +20,11 @@ const apiUrl = 'https://notflixapi.herokuapp.com/';
   providedIn: 'root',
 })
 export class FetchApiDataService {
-  // Inject the HttpClient module to the constructor params
-  // This will provide HttpClient to the entire class, making it available via this.http
+  /**
+   * Inject the HttpClient module to the constructor params
+   * This will provide HttpClient to the entire class, making it available via this.http
+   * @param http the HttpClient
+   */
   constructor(private http: HttpClient) {
     this.http = http;
   }
