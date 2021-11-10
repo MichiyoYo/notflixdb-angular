@@ -28,6 +28,6 @@ This project is an alterative implementation of the client side of the applicati
 
 ## Installation
 
-Run `npm install` to install all the dependencies
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Run `npm install` to install all the dependencies
+- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
