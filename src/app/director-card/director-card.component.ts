@@ -1,3 +1,7 @@
+/**
+ * DirectorCardComponent view allows a user to visualize info about the director of a movie.
+ * @module
+ */
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -7,6 +11,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./director-card.component.scss'],
 })
 export class DirectorCardComponent implements OnInit {
+  /**
+   * All constructor items are documented as properties
+   * @ignore
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
@@ -17,5 +25,9 @@ export class DirectorCardComponent implements OnInit {
     }
   ) {}
 
+  /**
+   * Initializes the component
+   * @ignore
+   */
   ngOnInit(): void {}
 }

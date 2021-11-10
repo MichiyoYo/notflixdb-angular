@@ -10,7 +10,12 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./profile-edit.component.scss'],
 })
 export class ProfileEditComponent implements OnInit {
+  //Getting the user info from localStorage if present
   user: any = JSON.parse(localStorage.getItem('user') || '');
+
+  /**
+   * This decorator binds the form input values to the userData object
+   */
   @Input() userData = {
     Username: this.user.Username,
     Password: '',
@@ -18,6 +23,10 @@ export class ProfileEditComponent implements OnInit {
     BirthDate: this.user.BirthDate,
   };
 
+  /**
+   * All constructor items are documented as properties
+   * @ignore
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: { onSuccess: () => void },
@@ -26,14 +35,23 @@ export class ProfileEditComponent implements OnInit {
     public snackBar: MatSnackBar
   ) {}
 
+  /**
+   * Initializes the component
+   * @ignore
+   */
   ngOnInit(): void {}
 
+  /**
+   * Updates the info of the user, sending the data to the backend.
+   * A snack bar element is shown, containing the result of the operation
+   */
   editUser(): void {
     this.fetchApiData
       .editUser(this.user.Username, this.userData)
       .subscribe((res) => {
         this.dialogRef.close();
-        localStorage.setItem('user', JSON.stringify(res)); //updating the localstorage with the updated user
+        //updating the localstorage with the updated user
+        localStorage.setItem('user', JSON.stringify(res));
         this.snackBar.open('The profile was successfully updated! 👏', 'Nice', {
           duration: 2000,
         });

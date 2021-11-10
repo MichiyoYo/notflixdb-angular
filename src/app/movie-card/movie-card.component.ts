@@ -1,3 +1,8 @@
+/**
+ * MovieCardComponent view holds informations about a movie, such as title, poster image, director, genre and synopsis.
+ * It allosw a user to like a movie by clicking on the heart shaped icon.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
@@ -13,10 +18,15 @@ import { DirectorCardComponent } from '../director-card/director-card.component'
   styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
+  //Getting the user info from localStorage if present
   user: any = JSON.parse(localStorage.getItem('user') || '');
   movies: any[] = [];
   favMovies: any[] = this.user.FavoriteMovies;
 
+  /**
+   * All constructor items are documented as properties
+   * @ignore
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -25,7 +35,7 @@ export class MovieCardComponent implements OnInit {
   ) {}
 
   /**
-   * Initialize component and retrieve all movies
+   * Initializes component, retrieves all movies and the user's faviorites
    */
   ngOnInit(): void {
     this.getMovies();
@@ -34,7 +44,6 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * Retrieves all the movies from the database
-   * @function getMovies
    */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((res: any) => {
@@ -45,7 +54,6 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * Opens a dialog containing info about the genre
-   * @function openGenreDialog
    * @param name the name of the genre
    * @param description the description of the genre
    */
@@ -58,7 +66,6 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * Opens a dialog containing info about the director
-   * @function openDirectorDialog
    * @param name the name of the director
    * @param bio the bio of the director
    * @param birthDate bith date of the director
@@ -83,7 +90,6 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * Opens a dialog containing info about the movie
-   * @function openSynopsisDialog
    * @param title the title of the movie
    * @param description the description of the movie
    */
@@ -106,7 +112,6 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * Updates the local list of favorites by downloading it from the DB
-   * @function getUserFavs
    */
   getUserFavs(): any {
     this.fetchApiData.getFavMovies(this.user.Username).subscribe((res: any) => {
@@ -167,7 +172,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * Toggles the heart shape icon from full to empty, and invokes the method to add or
+   * Toggles the heart shaped icon from full to empty, and invokes the method to add or
    * remove a function from the user's list of favorites
    * @function toggleFavs
    * @param movie the movie to add/remove to/from favs

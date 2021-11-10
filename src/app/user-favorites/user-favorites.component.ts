@@ -1,3 +1,9 @@
+/**
+ * UserFavoritesComponent view allows a user to view their list of favorites
+ * offering the option to remove a movie from the list of favorites or visualize info about director, genre and its synopsis.
+ * @module
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
@@ -16,6 +22,10 @@ export class UserFavoritesComponent implements OnInit {
   user: any = JSON.parse(localStorage.getItem('user') || '');
   favMovies: any[] = [];
 
+  /**
+   * All constructor items are documented as properties
+   * @ignore
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -23,13 +33,16 @@ export class UserFavoritesComponent implements OnInit {
     public snackBar: MatSnackBar
   ) {}
 
+  /**
+   * Initializes the component
+   * @ignore
+   */
   ngOnInit(): void {
     this.getUserFavs();
   }
 
   /**
    * Opens a dialog containing info about the genre
-   * @function openGenreDialog
    * @param name the name of the genre
    * @param description the description of the genre
    */
@@ -42,7 +55,6 @@ export class UserFavoritesComponent implements OnInit {
 
   /**
    * Opens a dialog containing info about the director
-   * @function openDirectorDialog
    * @param name the name of the director
    * @param bio the bio of the director
    * @param birthDate bith date of the director
@@ -67,7 +79,6 @@ export class UserFavoritesComponent implements OnInit {
 
   /**
    * Opens a dialog containing info about the movie
-   * @function openSynopsisDialog
    * @param title the title of the movie
    * @param description the description of the movie
    */
@@ -90,7 +101,6 @@ export class UserFavoritesComponent implements OnInit {
 
   /**
    * Updates the local list of favorites by downloading it from the DB
-   * @function getUserFavs
    */
   getUserFavs(): any {
     this.fetchApiData.getFavMovies(this.user.Username).subscribe((res: any) => {
@@ -151,7 +161,7 @@ export class UserFavoritesComponent implements OnInit {
   }
 
   /**
-   * Toggles the heart shape icon from full to empty, and invokes the method to add or
+   * Toggles the heart shaped icon from full to empty, and invokes the method to add or
    * remove a function from the user's list of favorites
    * @function toggleFavs
    * @param movie the movie to add/remove to/from favs

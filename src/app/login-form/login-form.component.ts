@@ -1,3 +1,6 @@
+/**
+ * LoginFormComponent view allows a user to login into the app
+ */
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
@@ -10,6 +13,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
+  /**
+   * This decorator binds the form input values to the userData object
+   */
   @Input() userCredentials = { Username: '', Password: '' };
 
   constructor(
@@ -19,8 +25,16 @@ export class LoginFormComponent implements OnInit {
     public router: Router
   ) {}
 
+  /**
+   * Initializes the component
+   * @ignore
+   */
   ngOnInit(): void {}
 
+  /**
+   * Logs the user in by sending a request to the backend endpoint.
+   * A snack bar is shown, holding a message about the result of the operation.
+   */
   login(): void {
     this.fetchApiData.userLogin(this.userCredentials).subscribe(
       (result) => {

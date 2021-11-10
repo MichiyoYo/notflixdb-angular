@@ -1,3 +1,7 @@
+/**
+ * NavbarComponent view renders a side nav and toolbar to facilitate the navigation for the user
+ */
+
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
@@ -18,12 +22,19 @@ export class NavbarComponent {
       shareReplay()
     );
 
+  /**
+   * All constructor items are documented as properties
+   * @ignore
+   */
   constructor(
     private breakpointObserver: BreakpointObserver,
     public router: Router,
     public snackBar: MatSnackBar
   ) {}
 
+  /**
+   * Signs a user out by clearing the localStorage and redirecting to the welcome page.
+   */
   userLogout(): void {
     localStorage.clear();
     this.snackBar.open('You successfully logged out! 👋', 'Ok, tnx, bye', {

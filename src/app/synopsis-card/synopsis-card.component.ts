@@ -1,3 +1,7 @@
+/**
+ * SynopsisCardComponent view allows a user to visualize the synopsis of a movie in a dialog
+ */
+
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -7,6 +11,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./synopsis-card.component.scss'],
 })
 export class SynopsisCardComponent implements OnInit {
+  /**
+   * All constructor items are documented as properties
+   * @ignore
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
@@ -17,5 +25,9 @@ export class SynopsisCardComponent implements OnInit {
     }
   ) {}
 
+  /**
+   * Initializes the component
+   * @ignore
+   */
   ngOnInit(): void {}
 }
