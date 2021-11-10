@@ -2,9 +2,9 @@
 
 This project is an alterative implementation of the client side of the application NotFlix built with Angular. It uses the existing server-side code (REST API and database), with supporting documentation
 
-<img src=https://github.com/MichiyoYo/notflixdb-angular/blob/main/demo/notflix-angular-demo.gif">
+![Demo image of the application](https://github.com/MichiyoYo/notflixdb-angular/blob/main/demo/notflix-angular-demo.gif)
 
-(Click here for live demo)[https://michiyoyo.github.io/notflixdb-angular/]
+[Click here for live demo](https://michiyoyo.github.io/notflixdb-angular/)
 
 ## Tech Stack
 
